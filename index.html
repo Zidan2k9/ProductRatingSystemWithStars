@@ -20,11 +20,90 @@
             </thead>
             <tbody>
                 <tr class="sony"> 
-
+                    <td>Sony 4K TV</td>
+                    <td>
+                        <div class="stars-outer">
+                            <div class="stars-inner"></div>
+                        </div>
+                        <span class="number-rating"></span>
+                    </td>
                 </tr>
+                <tr class="samsung"> 
+                        <td>Samsung 4K TV</td>
+                        <td>
+                            <div class="stars-outer">
+                                <div class="stars-inner"></div>
+                            </div>
+                            <span class="number-rating"></span>
+                        </td>
+                    </tr>
+                    <tr class="luckygoldstar"> 
+                            <td>LG 4K TV</td>
+                            <td>
+                                <div class="stars-outer">
+                                    <div class="stars-inner"></div>
+                                </div>
+                                <span class="number-rating"></span>
+                            </td>
+                        </tr>
+                        <tr class="jvc"> 
+                                <td>JVC 4K TV</td>
+                                <td>
+                                    <div class="stars-outer">
+                                        <div class="stars-inner"></div>
+                                    </div>
+                                    <span class="number-rating"></span>
+                                </td>
+                            </tr>
+                            <tr class="toshiba"> 
+                                    <td>Toshiba 4K TV</td>
+                                    <td>
+                                        <div class="stars-outer">
+                                            <div class="stars-inner"></div>
+                                        </div>
+                                        <span class="number-rating"></span>
+                                    </td>
+                                </tr>
             </tbody>
         </table>
     </div>
-    
+
+    <script>
+        // Initial Ratings 
+
+        const ratings = {
+            sony: 4.7,
+            samsung:3.4,
+            luckygoldstar:2.3,
+            jvc:3.6,
+            toshiba:4.1
+        }
+
+        //Total stars
+
+        const starsTotal = 5;
+
+        //Run getRatings when the DOM loads
+        document.addEventListener('DOMContentLoaded',getRatings);
+        //Get ratings
+        function getRatings(){
+            for (let rating in ratings) {
+                //get % value
+                const starPercentage = (ratings[rating] / starsTotal) * 100;
+                console.log(starPercentage);
+
+                //Round to nearest 10
+                const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+
+                console.log(starPercentageRounded);
+
+                //set width of stars-inner percentage
+                document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;          
+                
+            }
+        }
+    </script>
+
 </body>
+
 </html>
